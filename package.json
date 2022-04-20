@@ -1,0 +1,11 @@
+{
+  "name": "sdc",
+  "version": "1.0.0",
+  "description": "a database and API to supply data for an ecommerce site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Kieran Yun",
+  "license": "UNLICENSED"
+}
