@@ -1,6 +1,6 @@
 DROP TABLE if EXISTS Products;
 CREATE TABLE Products (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY SERIAL,
   name varchar (60),
   slogan varchar (250),
   description varchar (250),
@@ -11,11 +11,11 @@ CREATE TABLE Products (
 
 DROP TABLE IF EXISTS Reviews
 CASCADE;
-CREATE TABLE Reviews (
-  id INT NOT NULL PRIMARY KEY,
+CREATE TABLE Old_Reviews (
+  id INT SERIAL NOT NULL PRIMARY KEY,
   product_id INT,
   rating INT,
-  weird_date BIGINT,
+  date TIMESTAMP,
   summary VARCHAR,
   body VARCHAR,
   recommend BOOLEAN,
@@ -29,7 +29,7 @@ CREATE TABLE Reviews (
 
 DROP TABLE IF EXISTS Photos;
 CREATE TABLE Photos (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY SERIAL,
   review_id INT,
   photo_url VARCHAR (250),
   FOREIGN KEY (review_id) REFERENCES Reviews (id)
@@ -38,7 +38,7 @@ CREATE TABLE Photos (
 
 DROP TABLE IF EXISTS Characteristics;
 CREATE TABLE Characteristics (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY SERIAL,
   product_id INT,
   name varchar,
   FOREIGN KEY (product_id) REFERENCES Products (id)
@@ -46,13 +46,10 @@ CREATE TABLE Characteristics (
 
 DROP TABLE IF EXISTS CharacteristicsReviews;
 CREATE TABLE CharacteristicsReviews (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY SERIAL,
   characteristic_id INT,
   review_id INT,
   value INT,
   FOREIGN KEY (characteristic_id) REFERENCES Characteristics (id),
   FOREIGN KEY (review_id) REFERENCES Reviews (id)
 );
-
-
-
