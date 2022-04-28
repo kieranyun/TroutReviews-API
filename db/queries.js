@@ -3,7 +3,7 @@ const db = require('./index');
 
 exports.getAllReviewsForProduct = (productID, count, offset) => {
   const query = `
-    SELECT review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos, characteristics
+    SELECT review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness, photos[1], characteristics
     FROM opt_reviews
     WHERE product_id = $1 AND reported = false
     LIMIT $2 OFFSET $3`;
