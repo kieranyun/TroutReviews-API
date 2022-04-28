@@ -10,8 +10,5 @@ const pool = new Pool({
 });
 
 module.exports = {
-  query: (query, params) => {
-    console.log(pool);
-    return pool.query(query, params);
-  },
+  query: (query, params) => pool.query(query, params),
 };

@@ -63,7 +63,7 @@ app.post('/reviews', (req, res) => {
     .catch((err) => res.send(err));
 });
 
-app.get(`/loaderio-2473530254bc46dedca64b3498299949
+app.get(`/loaderio-2473530254bc46dedca64b3498299949/
 `, (req, res) => {
   res.send(`loaderio-2473530254bc46dedca64b3498299949
   `);
